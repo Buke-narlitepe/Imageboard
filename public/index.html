@@ -1,10 +1,25 @@
 <!doctype html>
 <html>
 <head>
-    <title></title>
+    <title>Imagegram</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="main">
+        <h2><span class="imagegram">IG</span>Imagegram</h2>
+        <h3>Latest Images</h4>
+        <div class="imageboard">
+            <div class="images" v-for="image in images">
+                <img :src="image.url" >
+                <p class="title">{{image.title}}</p>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/vue.js"></script>
     <script src="/js/axios.min.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
