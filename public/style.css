@@ -1,8 +1,16 @@
 body {
-    background-color: blueviolet;
     font-family: "Prompt", sans-serif;
-    background-color: #fafafa;
+    background-color: #e6e34852;
     color: #262626;
+    filter: hue-rotate(-5deg);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+html {
+    padding: 0;
+    margin: 0;
 }
 
 div.imageboard {
@@ -13,22 +21,89 @@ div.imageboard {
 }
 
 div.images {
-    display: flex;
-    flex-direction: column;
-    flex: 30%;
+    width: 30%;
     text-align: center;
     border: 1px solid black;
     border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
     margin: 10px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
     transition: 0.3s;
     padding: 5px;
 }
 
-img {
-    width: 100%;
-    flex-grow: 1;
+form.form {
+    margin-left: 30px;
+}
+input {
+    font-family: "Prompt", sans-serif;
     border-radius: 5px;
+    border: none;
+}
+input[type="file"] {
+    font-family: "Prompt", sans-serif;
+}
+
+::-webkit-file-upload-button {
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    color: white;
+    padding: 3px 7px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px transparent;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.15s ease;
+    font-family: "Prompt", sans-serif;
+    box-sizing: border-box;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+button {
+    font-family: "Prompt", sans-serif;
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    border-radius: 10px;
+    color: #fff;
+    width: 80px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px transparent;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+img {
+    object-fit: fill;
+    height: 50vh;
+    width: 100%;
+    border-radius: 5px;
+}
+img.icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 h2 {
     margin: 30px;
@@ -66,10 +141,96 @@ span.imagegram {
 
 @media (max-width: 768px) {
     div.images {
-        flex: 100%;
+        width: 90%;
+    }
+    img {
+        height: 50vh;
     }
 }
 
 div.images:hover {
     box-shadow: 0 12px 16px 0 #fdf497, 0 17px 50px 0 #d6249f;
+}
+
+p.username {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+div.user {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+
+div.modalpage {
+    position: fixed;
+    top: 50px;
+    width: 70vw;
+    height: 100vh;
+    background-color: #fd5949;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    border-radius: 10px;
+}
+
+h2.close {
+    cursor: pointer;
+    text-align: right;
+    font-size: 25px;
+    margin-top: 0;
+    margin-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+div.imagepart {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+div.imagepart p {
+    margin-top: 0;
+}
+
+img.big {
+    object-fit: fill;
+    height: 30vh;
+    width: 30vw;
+    border-radius: 10px;
+    border: 1px solid transparent;
+}
+img.bin {
+    padding-left: 250px;
+    height: 40px;
+    width: 40px;
+}
+
+div.background {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+p.user {
+    font-style: italic;
+}
+p.title {
+    font-size: 25px;
+    font-weight: 800;
+}
+p.description {
+    font-size: 18px;
+    font-weight: 500;
 }

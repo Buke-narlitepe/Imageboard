@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS images;
 
 CREATE TABLE images(
@@ -7,6 +8,14 @@ CREATE TABLE images(
     title VARCHAR NOT NULL,
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR NOT NULL,
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    image_id INTEGER NOT NULL REFERENCES images(id)
 );
 
 INSERT INTO images (url, username, title, description) VALUES (
@@ -29,3 +38,7 @@ INSERT INTO images (url, username, title, description) VALUES (
     'To be or not to be',
     'That is the question.'
 );
+
+-- //psql imageboard
+-- DELETE FROM images WHERE id=7; (it deletes last image from our images table and from client side)
+
