@@ -29,7 +29,7 @@
                 <p class="title">{{image.title}}</p>
             </div>
         </div>
-        <button v-if="hasMore" @click="loadMore">Load More</button>
+        <button v-if="hasMore" @click="loadMore" class="more">Load More</button>
         <image-component :id ="id" v-if="id" @close-the-component = "closingComponent" >
             </image-component>
     </div>
