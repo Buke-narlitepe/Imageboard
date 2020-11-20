@@ -30,6 +30,9 @@ module.exports = (req, res, next) => {
         .promise()
         .then(() => {
             req.body.url = config.s3Url + filename;
+
+            fs.promises.unlink(path);
+
             next();
         })
         .catch((err) => {
