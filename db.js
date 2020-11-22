@@ -65,3 +65,15 @@ module.exports.uploadComments = function uploadComments(
         [image_id, username, comment]
     );
 };
+
+module.exports.getNewImages = function getNewImages(lastId) {
+    return db.query(`SELECT * FROM images WHERE id > $1`, [lastId]);
+};
+
+module.exports.deleteImageById = function deleteImageById(id) {
+    return db.query(`DELETE FROM images WHERE id = $1`, [id]);
+};
+
+module.exports.deleteCommentById = function deleteCommentById(id) {
+    return db.query(`DELETE FROM comments WHERE id = $1`, [id]);
+};

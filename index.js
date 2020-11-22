@@ -67,9 +67,36 @@ app.post("/comments", (req, res) => {
     db.uploadComments(image_id, username, comment).then((data) => {
         res.json(data.rows[0]);
     });
+});
 
-    //TODO: get all the properties of the comment from the req.body
-    //and save it to the database
+app.get("/new", (req, res) => {
+    db.getNewImages(req.query.id)
+        .then((data) => {
+            res.json(data.rows);
+        })
+        .catch((err) => {
+            console.log("error:", err);
+        });
+});
+
+app.delete("/images/:id", (req, res) => {
+    db.deleteImageById(req.params.id)
+        .then((data) => {
+            res.json(data.rows);
+        })
+        .catch((err) => {
+            console.log("err:", err);
+        });
+});
+
+app.delete("/comments/:id", (req, res) => {
+    db.deleteCommentById(req.params.id)
+        .then((data) => {
+            res.json(data.rows);
+        })
+        .catch((err) => {
+            console.log("err:", err);
+        });
 });
 
 app.listen(process.env.PORT || 3000, () => console.log("LISTENING..."));
