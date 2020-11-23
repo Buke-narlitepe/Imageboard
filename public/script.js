@@ -169,7 +169,7 @@
 
             loadMore() {
                 axios
-                    .get(`/images?lastId=${[...this.images].pop().id}`)
+                    .get(`/images?id=${[...this.images].pop().id}`)
                     .then((res) => {
                         if (res.data.length < 6) {
                             this.hasMore = false;
