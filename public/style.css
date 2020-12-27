@@ -18,6 +18,11 @@ div.imageboard {
     justify-content: space-around;
 }
 
+div.send-choose{
+    display:flex;
+    flex-direction:column;
+}
+
 div.images {
     width: 30%;
     text-align: center;
@@ -133,6 +138,12 @@ img.submit1 {
     width: 50px;
     border: 1px transparent;
     cursor: pointer;
+}
+
+img.send{
+    width:75px;
+    height:85px;
+    margin-left:5px;
 }
 img.notify,
 img.error-icon,

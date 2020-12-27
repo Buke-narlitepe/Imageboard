@@ -25,6 +25,7 @@
             closeModal() {
                 this.$emit("close-the-component");
             },
+
             getSpecificImage() {
                 axios
                     .get("/images/" + this.id)
@@ -166,7 +167,6 @@
                     this.images.splice(this.images.indexOf(image), 1);
                 });
             },
-
             loadMore() {
                 axios
                     .get(`/images?id=${[...this.images].pop().id}`)
